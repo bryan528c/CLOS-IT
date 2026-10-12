@@ -102,7 +102,13 @@
     "skip": 1,
     "fail": 0
   },
-  "includesWorkingTreeChanges": false,
+  "includesWorkingTreeChanges": true,
+  "workingTreeCodeChangesIncluded": false,
+  "preexistingAssetFormattingIncluded": {
+    "path": "public/vendor/mediapipe/vendor-manifest.json",
+    "sha256": "8748aa7b5b8d6f34dc3f5544b898c615d5980fcc4c26cd468ace20e9e1fb4321",
+    "difference": "Pre-existing newline-only difference; original file untouched, exact current bytes copied. git diff --ignore-space-at-eol is empty."
+  },
   "finalSourceCommit": "11717583e80466eb959863a9737b4cf1dc3f0d55",
   "sourceCodeFileCount": 144,
   "sourceCodeManifestSha256": "60c877315f084de339c93d97a69c85048ffcd4f937651dc7d85f9074ef77e1fb",
