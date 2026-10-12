@@ -5,6 +5,9 @@
 *.json text eol=lf
 *.md text eol=lf
 *.sql text eol=lf
+# Reviewed SQL migration hashes cover exact original bytes, including newlines.
+supabase/schema/*.sql -text -whitespace
+supabase/migrations/*.sql -text -whitespace
 *.cmd text eol=crlf
 *.ps1 text eol=crlf
 *.png binary
