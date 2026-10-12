@@ -1,0 +1,19 @@
+.planc-connections{box-sizing:border-box;display:flex;flex-direction:column;width:100%;min-width:0;max-height:100%;font-size:12px;line-height:1.5;color:inherit}
+.planc-connections .planc-connections-heading{display:flex;align-items:center;justify-content:space-between;gap:6px;flex:none;margin-bottom:10px}
+.planc-connections .planc-connections-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;flex:none;margin:0 0 10px}
+.planc-connections button,.planc-connections input,.planc-connections select,.planc-connections textarea{box-sizing:border-box;max-width:100%;min-width:0;font:inherit;color:inherit}
+.planc-connections button{white-space:normal;overflow-wrap:anywhere;min-height:30px;padding:5px 7px;border:1px solid #ffffff38;border-radius:5px;background:#ffffff12;text-align:center;cursor:pointer}
+.planc-connections button:disabled{opacity:.5;cursor:default}
+.planc-connections button[aria-pressed=true]{background:#ffffff30;border-color:#ffffff88}
+.planc-connections :focus-visible{outline:2px solid currentColor;outline-offset:2px}
+.planc-connections .planc-connections-body{min-height:0;overflow:auto;overscroll-behavior:contain;scrollbar-width:thin;overflow-wrap:anywhere}
+.planc-connections .planc-connections-body>section[hidden]{display:none}
+.planc-connections .backend-panel,.planc-connections .fitting-controls,.planc-connections .photo-suitability{display:flex;flex-direction:column;gap:9px;width:100%;min-width:0;margin:0;padding:0;border:0;background:transparent}
+.planc-connections h3{font-size:13px;margin:0 0 8px}
+.planc-connections p{margin:0 0 9px;font-size:12px;line-height:1.5;overflow-wrap:anywhere}
+.planc-connections label{display:block;margin:8px 0;line-height:1.5}
+.planc-connections input:not([type=checkbox]),.planc-connections select,.planc-connections textarea{display:block;width:100%;margin-top:5px;padding:6px 4px;border:1px solid #ffffff55;border-radius:4px;background:#252c32}
+.planc-connections input[type=checkbox]{width:13px;height:13px;margin:0 4px 0 0;vertical-align:middle}
+.planc-connections input[type=file]{font-size:11px;padding:5px 1px}
+.planc-connections .actions{display:flex;flex-direction:column;gap:7px}
+.planc-connections .planc-connection-result{padding:6px;border-left:2px solid currentColor}

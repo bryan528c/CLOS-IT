@@ -1,0 +1,215 @@
+/* Native 220 × 791 mirror UI; scene + controls share one contain transform. */
+.planc-stage{background:#d7d2c8}.planc-stage .photo-led-layer{width:100%;height:100%}.planc-stage .photo-led{mask-image:none;overflow:visible}
+.planc-stage .mx-surface[data-plan-c]{width:var(--pc-native-width);height:var(--pc-native-height);inset:0 auto auto 0;transform:scale(var(--pc-scale));transform-origin:0 0;--mirror-width:220px;color:#f1f0e9;background:none;font-size:12px;line-height:1.5;font-weight:400}
+.planc-stage .mx-surface[data-plan-c] *{text-shadow:none!important;-webkit-text-stroke:0!important;-webkit-text-fill-color:currentColor;mix-blend-mode:normal;color:inherit}
+.planc-stage .mx-surface[data-plan-c] button{font-size:11px;min-height:32px;border-radius:12px;line-height:1.4;padding:4px 7px;box-shadow:none!important;background:transparent!important;color:inherit!important}
+.planc-stage .mx-surface[data-plan-c] button:focus-visible{outline:1.5px solid #fff2cf!important;outline-offset:1px}
+.planc-stage .mx-surface[data-plan-c] button:disabled{opacity:.45}.planc-stage .mx-surface[data-plan-c] button[aria-pressed=true],.planc-stage .mx-surface[data-plan-c] button[aria-selected=true]{border-color:#f0eee47d;background:#ffffff12!important}
+.planc-stage .mx-surface[data-plan-c] h1,.planc-stage .mx-surface[data-plan-c] h2{font-size:20px;line-height:1.4;font-weight:450;letter-spacing:-.4px;margin:0 0 12px}
+.planc-stage .mx-surface[data-plan-c] small{font-size:10px;line-height:1.5}.planc-stage .mx-surface[data-plan-c] input,.planc-stage .mx-surface[data-plan-c] select,.planc-stage .mx-surface[data-plan-c] textarea{font:inherit;font-size:12px;min-height:32px;color:#f4f2e9!important;background:#272e2be8!important;border:1px solid #eee9d961;border-radius:6px;padding:5px}
+.planc-stage .mx-surface[data-plan-c] select option{background:#303630;color:white}.planc-stage .mx-surface[data-plan-c] .mx-header{display:none}
+.planc-stage .mx-surface[data-plan-c] .mx-nav{left:var(--pc-nav-left);width:var(--pc-nav-width);top:var(--pc-nav-top);gap:var(--pc-nav-gap)}
+.planc-stage .mx-surface[data-plan-c] .mx-nav button{height:var(--pc-nav-height);min-height:var(--pc-nav-height);font-size:9px!important;line-height:1.1;gap:5px;padding:4px 0;border:1px solid transparent;border-radius:13px;color:#eee9df!important}
+.planc-stage .mx-surface[data-plan-c] .mx-nav button[aria-current]{border-color:#f5f1df73;background:#f3f1de12!important}.planc-stage .mx-surface[data-plan-c] .mx-nav button::after{display:none!important}
+.planc-stage .mx-surface[data-plan-c] .mx-nav svg{width:20px;height:20px;stroke-width:1.2}
+.pc-header{position:absolute;left:8px;right:8px;top:48px;height:68px}.pc-header time{display:block;font-size:32px;font-weight:350;letter-spacing:-1px;line-height:40px}.pc-header>span{display:block;font-size:10px;margin-top:7px}.pc-header>div{position:absolute;right:0;top:2px;text-align:center;font-size:22px;line-height:1.4}.pc-header small{display:block;font-size:10px!important}
+.pc-content,.planc-stage .pc-care{position:absolute;left:var(--pc-content-left);top:var(--pc-content-top);width:var(--pc-content-width);max-height:var(--pc-content-height)}
+.pc-under-location{display:none}.pc-runtime-note{position:absolute;bottom:4px;left:8px;right:45px;font-size:7px!important;color:#cbc9c0!important;pointer-events:none}
+.planc-stage .mx-surface[data-plan-c] .pc-action{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:38px;border:1px solid #f5f0e76c!important;border-radius:20px;background:#ecebe51b!important;font-weight:450;font-size:11px!important;padding:5px 8px}
+.pc-action>span{margin-left:auto}.pc-home h1{margin-top:2px!important;font-size:19px!important}.pc-home>p{font-size:12px;line-height:1.65}.pc-home-coat{height:204px;display:flex;justify-content:center;align-items:center}.pc-home-coat .mirror-photo{width:65px;height:160px}.pc-home .pc-action{margin-top:22px}.pc-context-note{display:block;margin-top:20px;color:#d5d2c9!important;font-size:9px!important}.pc-home-guidance{margin-top:22px!important}.pc-home-look{width:137px;margin:12px 0 0;border:1px solid #f0eee445;border-radius:16px;padding:7px;background:transparent}.pc-home-look>small{font-size:8px!important}
+.pc-flatlay{width:100%;height:213px;position:relative;isolation:isolate}.pc-flatlay-part{position:absolute;display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:0;overflow:hidden;text-align:center}.pc-flatlay-part>.mirror-photo{width:100%;height:100%;min-height:32px}.pc-flatlay-part>span:not(.mirror-photo){font-size:10px!important;line-height:1.5;overflow-wrap:anywhere}.pc-flatlay-part .mirror-photo-placeholder small{font-size:8px!important;line-height:1.4!important;white-space:normal!important}.pc-flatlay-part[data-slot=outer]{left:2%;top:6%;width:47%;height:49%}.pc-flatlay-part[data-slot=top]{left:55%;top:8%;width:42%;height:39%}.pc-flatlay-part[data-slot=bottom]{left:59%;top:50%;width:36%;height:48%}.pc-flatlay-part[data-slot=shoes]{left:3%;top:71%;width:51%;height:24%}.pc-flatlay-part[data-slot=bag]{left:2%;top:48%;width:40%;height:25%}.pc-flatlay-part[data-slot=hat]{left:2%;top:0;width:30%;height:18%}.pc-flatlay-part[data-slot=accessory]{left:20%;top:47%;width:30%;height:16%}.pc-flatlay-part[data-slot=dress]{left:42%;top:13%;width:54%;height:82%}.pc-flatlay-small{height:154px;width:112px;margin:auto}
+.pc-card-browser{margin-top:15px}.pc-look-card{position:relative;border:1px solid #eeeee65a;border-radius:15px;min-height:255px;padding:10px 5px 8px}.pc-card-origin{font-size:9px}.pc-bookmark{position:absolute;right:8px;top:9px;font-size:12px;color:#f7f5ed}.pc-look-card>strong{display:block;font-weight:400;font-size:10px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.pc-page-controls{display:flex;align-items:center;justify-content:center;gap:15px;margin-top:8px;font-size:9px}.pc-page-controls button{min-width:32px}.pc-try{margin-top:12px}
+.planc-stage .mx-surface[data-plan-c] .mx-work,.planc-stage .mx-surface[data-plan-c] .mx-editor,.planc-stage .mx-surface[data-plan-c] .mx-detail{left:var(--pc-content-left);right:var(--pc-content-right);top:var(--pc-content-top);width:auto;bottom:22px;height:auto;max-height:none;overflow:hidden}
+.planc-stage .mx-surface[data-plan-c] .mx-editor{padding:0}.planc-stage .mx-surface[data-plan-c] .mirror-outfit-workspace{font-size:11px;color:inherit;gap:7px}.planc-stage .mx-surface[data-plan-c] .mow-library-heading h1{font-size:20px}.planc-stage .mx-surface[data-plan-c] .mow-library-heading button{font-size:10px;white-space:nowrap;padding:2px 5px;border:1px solid #f0eee44a}
+.planc-stage .mx-surface[data-plan-c] .mow-tabs{gap:4px}.planc-stage .mx-surface[data-plan-c] .mow-tabs button{font-size:10px!important;min-height:28px}.planc-stage .mx-surface[data-plan-c] .mow-library-body{overflow:hidden;flex:1}.planc-stage .mx-surface[data-plan-c] .mow-library-resume button{font-size:10px;min-height:28px}
+.planc-stage .mx-surface[data-plan-c] .mow-builder-heading{min-height:40px;gap:0}.planc-stage .mx-surface[data-plan-c] .mow-builder-heading strong{font-size:12px}.planc-stage .mx-surface[data-plan-c] .mow-back{width:23px}.planc-stage .mx-surface[data-plan-c] .mow-name span{font-size:9px}.planc-stage .mx-surface[data-plan-c] .mow-recommend{font-size:10px;width:36px}.planc-stage .mx-surface[data-plan-c] .mow-summary{height:125px}.planc-stage .mx-surface[data-plan-c] .mow-slot{height:88px;min-height:88px;padding:2px}.planc-stage .mx-surface[data-plan-c] .mow-slot .mirror-photo{height:48px}.planc-stage .mx-surface[data-plan-c] .mow-slot-label{font-size:10px!important;min-height:28px}.planc-stage .mx-surface[data-plan-c] .mow-slot-label *{font-size:9px!important}.planc-stage .mx-surface[data-plan-c] .mow-slot-tools{min-height:32px}.planc-stage .mx-surface[data-plan-c] .mow-slot-tools>span{font-size:10px}.planc-stage .mx-surface[data-plan-c] .mow-slot-tools button{min-width:25px;font-size:10px;min-height:30px;padding:3px}.planc-stage .mx-surface[data-plan-c] .mow-candidates{min-height:170px;height:210px;flex:none}.planc-stage .mx-surface[data-plan-c] .mow-builder-footer{margin-top:auto}.planc-stage .mx-surface[data-plan-c] .mow-actions button{font-size:11px;min-height:36px}.planc-stage .mx-surface[data-plan-c] .mow-notice{font-size:10px!important;line-height:1.45}.planc-stage .mx-surface[data-plan-c] .mow-actions{gap:5px}.planc-stage .mx-surface[data-plan-c] .mow-candidate-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.planc-stage .mx-surface[data-plan-c] .horizontal-pager{--pager-control-size:30px}.planc-stage .mx-surface[data-plan-c] .horizontal-pager__controls{margin-top:5px;min-height:30px}.planc-stage .mx-surface[data-plan-c] .horizontal-pager__controls button{height:30px;min-height:30px;padding:2px}.planc-stage .mx-surface[data-plan-c] .horizontal-pager__controls span{font-size:10px}
+.planc-stage .mx-surface[data-plan-c] .mg-heading{min-height:32px}.planc-stage .mx-surface[data-plan-c] .mg-types{gap:1px}.planc-stage .mx-surface[data-plan-c] .mg-types button{font-size:10px;min-height:30px;padding:3px}.planc-stage .mx-surface[data-plan-c] .mg-grid{gap:6px;grid-template-columns:repeat(3,minmax(0,1fr))}.planc-stage .mx-surface[data-plan-c] .mg-cell{height:95px;min-height:95px;padding:3px;border:1px solid #faf5e51a!important;border-radius:9px}.planc-stage .mx-surface[data-plan-c] .mg-cell>.mirror-photo{height:60px;width:100%}.planc-stage .mx-surface[data-plan-c] .mg-cell>span:not(.mirror-photo){font-size:10px!important;line-height:1.4!important}.planc-stage .mx-surface[data-plan-c] .mirror-photo-placeholder>small{font-size:9px!important;line-height:1.4!important}.planc-stage .mx-surface[data-plan-c] .mirror-photo-example{font-size:7px!important;color:#ddd!important}
+.planc-stage .mx-surface[data-plan-c] .mx-profile-panel{gap:20px}.planc-stage .mx-surface[data-plan-c] .mx-profiles-grid{grid-template-columns:1fr;gap:12px}.planc-stage .mx-surface[data-plan-c] .mx-profiles-grid>button{min-height:45px;border:1px solid #f7f3e848!important}.planc-stage .mx-surface[data-plan-c] .mx-profiles-grid>button[aria-pressed=true]{border-color:#f7f3e8a8!important;background:#ffffff12!important}.planc-stage .mx-surface[data-plan-c] .mx-panel-note{font-size:10px!important}.planc-stage .mx-surface[data-plan-c] .mx-profile-account{font-size:10px!important}
+.planc-stage .mx-surface[data-plan-c] .mx-month-title>strong{font-size:14px}.planc-stage .mx-surface[data-plan-c] .mx-month-title>button{min-width:28px;font-size:18px}.planc-stage .mx-surface[data-plan-c] .mx-month-grid{padding:4px 0}.planc-stage .mx-surface[data-plan-c] .mx-month-grid>button{min-height:27px;font-size:10px;padding:0}.planc-stage .mx-surface[data-plan-c] .mx-month-grid>button[aria-pressed=true]{background:#f4edcf38!important;border:1px solid #f4edcf80}.planc-stage .mx-surface[data-plan-c] .mx-weekday{font-size:9px}.planc-stage .mx-surface[data-plan-c] .mx-calendar-selected{font-size:12px}.planc-stage .mx-surface[data-plan-c] .mx-day-entry{padding:4px!important;gap:5px}.planc-stage .mx-surface[data-plan-c] .mx-day-entry>strong{font-size:12px}.planc-stage .mx-surface[data-plan-c] .mx-day-entry>button{min-height:30px;font-size:10px;border:1px solid #f4edcf3b}.planc-stage .mx-surface[data-plan-c] .mx-day-entry .mx-panel-composition{height:95px}.pc-plan>strong{display:block;font-size:11px;margin:8px 0}.pc-plan>button{width:100%;margin:5px 0}.pc-plan>p{font-size:12px;text-align:center;margin:6px 0}.pc-plan>small{display:block;font-size:9px!important;text-align:center}
+.planc-stage .mx-surface[data-plan-c] .pc-care-tabs button{min-height:30px;font-size:10px}.planc-stage .mx-surface[data-plan-c] .pc-care p{font-size:inherit}.planc-stage .mx-surface[data-plan-c] .pc-care-guide-steps p{font-size:9px;line-height:14px}.planc-stage .mx-surface[data-plan-c] .pc-care-cautions p{font-size:9.5px;line-height:14px}.planc-stage .mx-surface[data-plan-c] .pc-care-heading h2{font-size:21px}.planc-stage .mx-surface[data-plan-c] .pc-care-primary{border:1px solid #f0eee470!important;background:#ecebe522!important;min-height:40px}.planc-stage .mx-surface[data-plan-c] .pc-care-tabs button[aria-selected=true]{background:#f3f0e524!important}
+.pc-location h1{font-size:19px!important}.pc-back{margin:0 0 10px}.pc-location>p{font-size:11px}.pc-location article{margin:17px 0}.pc-location article>strong{font-size:12px;font-weight:500}.pc-location article>svg{width:90px;height:66px;display:block;margin:8px auto}.pc-location article>p{font-size:10px;line-height:1.5}.pc-location article{border-bottom:1px solid #f6efdc2a;padding-bottom:8px}.pc-unmapped{font-size:10px;margin:10px 0!important}
+.planc-stage .mx-surface[data-plan-c] .mc-compare{position:absolute;inset:150px 45px 22px 8px}.planc-stage .mx-surface[data-plan-c] .mc-heading{position:static;width:100%;display:flex;gap:4px}.planc-stage .mx-surface[data-plan-c] .mc-heading strong{font-size:11px}.planc-stage .mx-surface[data-plan-c] .mc-heading button{min-width:24px;padding:2px}.planc-stage .mx-surface[data-plan-c] .mc-composition-description{display:none}.planc-stage .mx-surface[data-plan-c] .mc-source-relation{position:static;font-size:9px}.planc-stage .mx-surface[data-plan-c] .mc-compare-tools{position:absolute;left:0;right:0;top:90px}.planc-stage .mx-surface[data-plan-c] .mc-compare-tools button{font-size:11px}.planc-stage .mx-surface[data-plan-c] .mc-compare-tools>span{font-size:9px}.planc-stage .mx-surface[data-plan-c] .mx-media-status{position:absolute;left:0;right:0;top:142px;font-size:10px!important;line-height:1.6;padding:6px;background:#292d2999!important}.planc-stage .mx-surface[data-plan-c] .mc-empty{position:absolute;top:218px;left:0;right:0;font-size:11px}.planc-stage .mx-surface[data-plan-c] .mc-empty .mx-panel-composition{height:130px}.planc-stage .mx-surface[data-plan-c] .mc-empty>p{font-size:11px}.planc-stage .mx-surface[data-plan-c] .mc-empty>small{font-size:10px}.planc-stage .mx-surface[data-plan-c] .mc-primary{position:absolute;top:46px;left:0;right:0}.planc-stage .mx-surface[data-plan-c] .mc-primary>.mx-primary{font-size:11px!important;min-height:36px!important;border:1px solid #f5f0e772;border-radius:20px;padding:4px 8px}.planc-stage .mx-surface[data-plan-c] .mc-feedback{min-height:0}.planc-stage .mx-surface[data-plan-c] .mc-quick{position:absolute;top:210px;left:0;right:0;background:#2e322ede!important;padding:5px;z-index:4}.planc-stage .mx-surface[data-plan-c] .mc-quick header{font-size:10px}.planc-stage .mx-surface[data-plan-c] .mc-quick button{font-size:10px;min-height:32px}.planc-stage .mx-surface[data-plan-c] .mc-more{position:absolute;left:0;right:0;top:80px;z-index:5;background:#292e29f0!important;padding:8px}.planc-stage .mx-surface[data-plan-c] .mc-more button{font-size:11px;min-height:36px}
+.planc-stage .mx-surface[data-plan-c] .mx-toast{left:8px;right:45px;top:auto;bottom:23px;background:#252c25f0!important;color:#f4f1e8;font-size:11px;max-height:100px;overflow:auto;padding:7px;z-index:22}
+.planc-stage .mx-surface[data-plan-c] .mx-detail-heading>strong{font-size:13px}.planc-stage .mx-surface[data-plan-c] .mx-garment-context{height:125px}.planc-stage .mx-surface[data-plan-c] .mx-garment-context>.mirror-photo{width:60px;height:115px}.planc-stage .mx-surface[data-plan-c] .mx-garment-context>span:not(.mirror-photo){font-size:10px}.planc-stage .mx-surface[data-plan-c] .mx-tabs button{font-size:11px;min-height:32px}.planc-stage .mx-surface[data-plan-c] .mx-history{min-height:220px;font-size:11px;padding:8px}.planc-stage .mx-surface[data-plan-c] .mx-history>strong{font-size:18px}.planc-stage .mx-surface[data-plan-c] .mx-history>small{font-size:10px}.planc-stage .mx-surface[data-plan-c] .mx-care{font-size:11px;padding:5px}.planc-stage .mx-surface[data-plan-c] .mirror-care-rows dt{font-size:10px}.planc-stage .mx-surface[data-plan-c] .mirror-care-rows dd{font-size:11px}.planc-stage .mx-surface[data-plan-c] .mirror-care-evidence .mirror-care-scope,.planc-stage .mx-surface[data-plan-c] .mirror-care-evidence .mirror-care-source{font-size:10px}
+.planc-stage .mx-surface[data-plan-c] .mx-inline-dialog{inset:150px 44px 25px 7px;background:#2c322bed!important;font-size:12px;padding:8px;overflow:auto}.planc-stage .mx-surface[data-plan-c] .mirror-account-panel p,.planc-stage .mx-surface[data-plan-c] .mirror-account-panel label,.planc-stage .mx-surface[data-plan-c] .mirror-account-panel input{font-size:11px}.planc-stage .mx-surface[data-plan-c] .mirror-account-panel h3{font-size:15px}
+@media(prefers-reduced-motion:reduce){.planc-stage *{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+.planc-stage .planc-connections{position:absolute;z-index:25;left:6px;top:150px;width:172px;height:612px;background:#282e28f5;padding:8px;border:1px solid #e2ded249;border-radius:10px}
+.planc-stage .mx-surface[data-plan-c]{background:rgba(28,31,28,.43);--mirror-ink:#f1f0e9;--mirror-ink-secondary:#dddacf;--mirror-ink-accent:#fff3d3;--mirror-edge-selected:rgba(241,236,218,.35);--mirror-edge-idle:rgba(241,236,218,.09)}
+.planc-stage .mx-surface[data-plan-c] :is(h1,h2,h3,.mow-name strong){font-weight:450}
+.planc-stage .mx-surface[data-plan-c] .pc-plan-edit-actions{display:flex;gap:5px}.planc-stage .mx-surface[data-plan-c] .pc-plan-edit-actions button{flex:1;font-size:10px;min-height:28px;border:1px solid #f4edcf30}
+.planc-stage .mx-surface[data-plan-c] .mirror-photo-placeholder,.planc-stage .mx-surface[data-plan-c] .mirror-photo-placeholder>small,.planc-stage .mx-surface[data-plan-c] .mg-cell>span:not(.mirror-photo),.planc-stage .mx-surface[data-plan-c] .pc-flatlay-part>span{color:#f1f0e9!important}
+.planc-stage .mx-surface[data-plan-c] .mow-summary .horizontal-pager__controls>span{font-size:9px;white-space:nowrap}.planc-stage .mx-surface[data-plan-c] .mow-summary-role{font-size:10px!important;white-space:nowrap;min-width:40px}.planc-stage .mx-surface[data-plan-c] .mow-builder-footer{margin-top:8px}.planc-stage .mx-surface[data-plan-c] .mow-slot-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.planc-stage .mx-surface[data-plan-c] .mow-status{font-size:10px;line-height:1.5}.planc-stage .mx-surface[data-plan-c] .mow-library-resume button{font-size:10px!important}.planc-stage .mx-surface[data-plan-c] .pc-flatlay-part{border:1px solid #f5f0db15;border-radius:5px}.planc-stage .mx-surface[data-plan-c] .pc-flatlay-part:has(.mirror-photo[data-photo-state=ready]){border:0}.planc-stage .mx-surface[data-plan-c] .pc-flatlay-part>span:not(.mirror-photo){font-size:9px!important;padding:0 2px}.planc-stage .mx-surface[data-plan-c] .pc-flatlay-part>.mirror-photo:has(.mirror-photo-placeholder){height:22px;flex:none;min-height:22px}
+.planc-stage .mx-surface[data-plan-c] .pc-home>p,.planc-stage .mx-surface[data-plan-c] .pc-home h1{background:#242a242b;border-radius:5px;padding:3px 4px}.planc-stage .mx-surface[data-plan-c] .pc-care-provenance{margin-top:15px;font-size:8px}
+
+/* Preserve contrast against the approved shaded mirror; override legacy clear-view ink. */
+.planc-stage .mx-surface[data-plan-c] .mc-compare :is(.mx-primary,.mx-media-status,.mc-empty p,.mc-empty small,.mc-compare-tools span,.mx-card-item,.mc-source-relation){color:#f1f0e9!important}
+.planc-stage .mx-surface[data-plan-c] .mc-compare .mc-primary>.mx-primary{color:#f1f0e9!important}
+.planc-stage .mx-surface[data-plan-c] .mx-month-grid>button{height:27px;line-height:20px;padding-bottom:4px}
+.planc-stage .mx-surface[data-plan-c] .mx-month-grid>button>i{width:2px;height:2px;left:calc(50% - 1px);bottom:2px}
+
+.planc-stage .mx-surface[data-plan-c] .pc-home>p,.planc-stage .mx-surface[data-plan-c] .pc-home h1{background:transparent;padding:0}.pc-home .pc-home-kind{font-size:10px!important;color:#d5d2c9!important;margin-top:12px}.pc-home-care-card{margin-top:35px;padding:12px 7px 9px;border:1px solid #eee8d65c;border-radius:15px;display:grid;grid-template-columns:55px minmax(0,1fr);column-gap:3px}.pc-home-care-card .pc-home-coat{height:124px;align-items:flex-start}.pc-home-care-card .pc-home-coat .mirror-photo{width:49px;height:115px}.pc-home-care-copy{min-width:0}.pc-home-care-copy strong{font-size:9px;font-weight:400;white-space:nowrap}.pc-home-care-copy p{font-size:9px;line-height:1.55;margin:15px 0 0;color:#d5d2c9}.pc-home-care-card .pc-action{grid-column:1/-1;margin-top:18px;min-height:36px!important}
+
+/* 031024 correction: all sizes below are untransformed source pixels. The scene
+   transform belongs only to .mx-surface; pagers measure their CSS content width. */
+.planc-stage .mx-surface[data-plan-c]{
+ --pc-text-primary:#f1f0e9;--pc-text-secondary:#dddacf;--pc-text-accent:#fff3d3;
+ --pc-text-on-light:#26332c;--pc-read-surface:rgba(24,30,25,.36);
+ --mirror-ink:var(--pc-text-primary);--mirror-ink-secondary:var(--pc-text-secondary);
+ --mirror-ink-accent:var(--pc-text-accent);--mirror-edge-hover:rgba(241,236,218,.18);
+ --mirror-border-selected:rgba(241,236,218,.52);--mirror-focus:#fff2cf;
+}
+.planc-stage .pc-header{left:var(--pc-header-left);right:auto;top:var(--pc-header-top);width:var(--pc-header-width);height:var(--pc-header-height)}
+.planc-stage .mx-surface[data-plan-c] :is(.mx-work,.mx-editor,.mx-detail){
+ left:var(--pc-content-left);right:auto;top:var(--pc-content-top);
+ width:var(--pc-content-width);height:var(--pc-content-height);bottom:auto;
+ min-width:0;min-height:0;overflow:visible;
+}
+.planc-stage .mx-surface[data-plan-c] :is(.pc-content,.pc-care,.mc-compare){
+ left:var(--pc-content-left);right:auto;top:var(--pc-content-top);
+ width:var(--pc-content-width);height:var(--pc-content-height);min-width:0;
+}
+.planc-stage .mx-surface[data-plan-c] .horizontal-pager{min-width:0;max-width:100%}
+.planc-stage .mx-surface[data-plan-c] .horizontal-pager__controls button{width:30px;min-width:30px}
+.planc-stage .mx-surface[data-plan-c] .horizontal-pager__controls>span{min-width:34px}
+.planc-stage .mx-surface[data-plan-c] .mx-nav button:not([aria-current]):hover{border-color:rgba(241,236,218,.2);background:transparent!important}
+.planc-stage .mx-surface[data-plan-c] .mx-nav button:not([aria-current]):focus-visible{border-color:transparent;background:transparent!important}
+.planc-stage .mx-surface[data-plan-c] .mx-nav button:focus-visible::before{border:1px dashed var(--pc-text-accent);outline:none;border-radius:10px}
+
+/* The primary and secondary primitives replace legacy dark-on-clear ink only
+   inside this scene. A light badge can opt into its own dark-on-light token. */
+.planc-stage .mx-surface[data-plan-c] :is(.mx-detail,.mx-history,.mx-care,.mirror-care-evidence,.mg-care-list,.mg-care-helper,.mx-inline-dialog,.mow-empty,.mow-style-panel,.mow-style-upload,.mow-style-filters,.mow-library-hint,.mx-calendar-empty){color:var(--pc-text-primary)}
+.planc-stage .mx-surface[data-plan-c] .mx-care .mirror-care-evidence{color:var(--pc-text-primary)}
+.planc-stage .mx-surface[data-plan-c] :is(.mg-count,.mg-step,.mx-detail-heading,.mx-history small,.mx-care small,.mg-care-helper small,.mx-location-caption,.mx-original-text,.mirror-care-source,.mirror-care-scope,.mow-style-filters,.mow-status,.mow-reference-summary,.mx-panel-note,.mx-profile-context){color:var(--pc-text-secondary)}
+.planc-stage .mx-surface[data-plan-c] :is(a,summary){color:var(--pc-text-accent);font-size:11px;line-height:1.5;overflow-wrap:anywhere}
+.planc-stage .mx-surface[data-plan-c] .pc-dark-on-light{color:var(--pc-text-on-light);--pc-control-ink:var(--pc-text-on-light)}
+.planc-stage .mx-surface[data-plan-c] .pc-dark-on-light button{color:var(--pc-control-ink)!important}
+.planc-stage .mx-surface[data-plan-c] :is(input,textarea)::placeholder{color:var(--pc-text-secondary);opacity:1}
+.planc-stage .mx-surface[data-plan-c] input::file-selector-button{color:var(--pc-text-primary);font-size:11px;min-height:30px;border-color:var(--mirror-edge-selected)}
+
+/* Full ordinary cells, not carousel peeks. Six items form two complete columns
+   even while search and the additional category row are open. */
+.planc-stage .mx-surface[data-plan-c] .mg-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;padding:2px}
+.planc-stage .mx-surface[data-plan-c] .mg-cell{height:108px;min-height:108px;gap:3px;overflow:visible}
+.planc-stage .mx-surface[data-plan-c] .mg-cell>.mirror-photo{height:65px}
+.planc-stage .mx-surface[data-plan-c] .mg-cell>span:last-child{min-height:29px;max-height:29px;line-height:14px!important;white-space:normal;word-break:keep-all;overflow-wrap:anywhere}
+.planc-stage .mx-surface[data-plan-c] .mg-types{grid-template-columns:repeat(5,minmax(0,1fr));flex:none}
+.planc-stage .mx-surface[data-plan-c] .mg-types button{padding:2px 0;min-width:0}
+.planc-stage .mx-surface[data-plan-c] .mg-extra-types{display:flex;flex-wrap:wrap;gap:2px}
+.planc-stage .mx-surface[data-plan-c] .mg-extra-types button{font-size:10px;min-height:28px;padding:3px}
+.planc-stage .mx-surface[data-plan-c] .mg-care-overview{gap:8px}
+.planc-stage .mx-surface[data-plan-c] .mg-care-overview>h1{margin-bottom:0}
+.planc-stage .mx-surface[data-plan-c] .mg-care-overview>.mx-fine{font-size:10px!important}
+.planc-stage .mx-surface[data-plan-c] .mow-candidates .mg-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:4px}
+.planc-stage .mx-surface[data-plan-c] .mow-candidates .mg-cell{height:114px;min-height:114px}
+.planc-stage .mx-surface[data-plan-c] .mow-candidates .mg-cell>.mirror-photo{height:63px}
+.planc-stage .mx-surface[data-plan-c] .mow-candidates .mg-cell>span:last-child{min-height:40px;max-height:40px;-webkit-line-clamp:3}
+
+.planc-stage .mx-surface[data-plan-c] .mx-month-grid{width:100%;grid-template-columns:repeat(7,minmax(0,1fr));gap:1px;min-width:0;padding:4px 0}
+.planc-stage .mx-surface[data-plan-c] .mx-month-grid>*{min-width:0;max-width:100%}
+.planc-stage .mx-surface[data-plan-c] .mx-month-grid>button[aria-pressed=true]::after{width:19px;height:22px}
+.planc-stage .mx-surface[data-plan-c] .mx-month-title{min-width:0}
+.planc-stage .mx-surface[data-plan-c] .mx-month-title>strong{font-size:13px;min-width:0}
+.planc-stage .mx-surface[data-plan-c] .mx-calendar-selected strong{white-space:normal}
+.planc-stage .mx-surface[data-plan-c] .pc-calendar-view{display:flex;flex-direction:column;gap:5px;min-width:0}
+.planc-stage .mx-surface[data-plan-c] .pc-calendar-detail{max-height:330px;overflow-y:auto;scrollbar-width:thin;scrollbar-color:#d5d2c980 transparent;background:var(--pc-read-surface);padding:7px}
+.planc-stage .mx-surface[data-plan-c] .pc-calendar-detail button{min-height:32px;font-size:10px;white-space:normal}
+.planc-stage .mx-surface[data-plan-c] :is(.pc-calendar-view,.pc-calendar-detail) .mx-card-description{white-space:normal;overflow-wrap:anywhere}
+
+/* Keep garment identity and tabs fixed. Long source material scrolls within a
+   visible reading region; the app and mirror retain their fixed scene. */
+.planc-stage .mx-surface[data-plan-c] .mx-detail{display:flex;flex-direction:column;gap:6px}
+.planc-stage .mx-surface[data-plan-c] .mx-detail-heading{flex:none;min-height:38px;align-items:center}
+.planc-stage .mx-surface[data-plan-c] .mx-detail-heading>strong{min-width:0;font-size:12px;line-height:1.4;word-break:keep-all;overflow-wrap:anywhere}
+.planc-stage .mx-surface[data-plan-c] .mx-detail-heading>button{min-width:26px;width:26px;flex:none;padding:2px}
+.planc-stage .mx-surface[data-plan-c] .mx-detail-heading>.mg-record-entry{min-width:30px!important;width:30px;font-size:10px}
+.planc-stage .mx-surface[data-plan-c] .mx-garment-context{height:105px;flex:none}
+.planc-stage .mx-surface[data-plan-c] .mx-garment-context>.mirror-photo{height:100px;width:60px}
+.planc-stage .mx-surface[data-plan-c] .mx-tabs{flex:none;gap:4px;margin:0;min-width:0}
+.planc-stage .mx-surface[data-plan-c] .mx-tabs button{min-width:0;font-size:10px;white-space:normal}
+.planc-stage .mx-surface[data-plan-c] .mx-detail>.horizontal-pager{flex:1;min-height:0}
+.planc-stage .mx-surface[data-plan-c] .mx-detail>.horizontal-pager .horizontal-pager__viewport,
+.planc-stage .mx-surface[data-plan-c] .mx-detail>.horizontal-pager .horizontal-pager__track,
+.planc-stage .mx-surface[data-plan-c] .mx-detail>.horizontal-pager .horizontal-pager__page{height:100%}
+.planc-stage .mx-surface[data-plan-c] .mx-detail :is(.mx-history,.mx-care){min-height:0;height:auto;max-height:100%;margin:0;padding:7px;overflow-y:auto;scrollbar-width:thin;scrollbar-color:#d5d2c980 transparent;background:var(--pc-read-surface);border-radius:7px}
+.planc-stage .mx-surface[data-plan-c] .mx-history>small{font-size:10px!important;line-height:1.55!important;white-space:normal;overflow-wrap:anywhere}
+.planc-stage .mx-surface[data-plan-c] .mx-care :is(.mirror-care-evidence>strong,.mirror-care-evidence>button){font-size:11px;line-height:1.45}
+.planc-stage .mx-surface[data-plan-c] .mx-care .mirror-care-rows{gap:7px;font-size:11px}
+.planc-stage .mx-surface[data-plan-c] .mx-care .mirror-care-rows>div{grid-template-columns:1fr;gap:1px}
+.planc-stage .mx-surface[data-plan-c] .mx-care .mirror-care-rows dt{font-size:10px;color:var(--pc-text-secondary)}
+.planc-stage .mx-surface[data-plan-c] .mx-care .mirror-care-rows dd{font-size:11px;line-height:1.5}
+.planc-stage .mx-surface[data-plan-c] .mx-care .mirror-care-evidence :is(.mirror-care-source,.mirror-care-scope){font-size:10px;line-height:1.5;overflow-wrap:anywhere}
+.planc-stage .mx-surface[data-plan-c] .mx-location-caption{flex:none;margin:0!important;font-size:10px!important;min-height:0}
+.planc-stage .mx-surface[data-plan-c] .mx-location-caption:empty{display:none}
+.planc-stage .mx-surface[data-plan-c] .mx-inline-dialog{left:var(--pc-content-left);right:auto;top:var(--pc-content-top);width:var(--pc-content-width);height:var(--pc-content-height);max-height:none;bottom:auto;scrollbar-width:thin}
+.planc-stage .mx-surface[data-plan-c] .mx-inline-dialog :is(p,.mx-original-text){font-size:11px;line-height:1.65;overflow-wrap:anywhere}
+
+/* Task-specific states share the same content rect and a stable action slot. */
+.planc-stage .mx-surface[data-plan-c] .mc-compare{height:var(--pc-content-height)}
+.planc-stage .mx-surface[data-plan-c] .mc-snapshot{position:absolute;left:0;top:45px;width:73px;margin:0;padding:5px;border:1px solid var(--mirror-edge-idle);border-radius:8px;background:var(--pc-read-surface)}
+.planc-stage .mx-surface[data-plan-c] .mc-snapshot .mx-panel-composition{height:110px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.planc-stage .mx-surface[data-plan-c] .mc-snapshot figcaption{font-size:8px;line-height:1.4;margin-top:4px}
+.planc-stage .mx-surface[data-plan-c] .mc-result-state{position:absolute;left:0;right:0;top:212px;min-height:74px;font-size:11px;line-height:1.7;text-align:center;background:var(--pc-read-surface);border-radius:7px;padding:10px 7px;color:var(--pc-text-primary)}
+.planc-stage .mx-surface[data-plan-c] .mc-result-state p{font-size:11px}
+.planc-stage .mx-surface[data-plan-c] .mc-edit-entry{position:absolute;left:0;right:0;top:330px;width:100%;border:1px solid var(--mirror-edge-selected);font-size:11px}
+.planc-stage .mx-surface[data-plan-c] .mc-primary{top:auto;bottom:10px;min-height:var(--pc-action-height)}
+.planc-stage .mx-surface[data-plan-c] .mc-more{top:35px}
+.planc-stage .mx-surface[data-plan-c] .mx-profile-panel{gap:12px}
+.planc-stage .mx-surface[data-plan-c] .mx-profile-panel :is(h1,h2){margin:0}
+.planc-stage .mx-surface[data-plan-c] .mx-profile-panel h2{font-size:13px}
+.planc-stage .mx-surface[data-plan-c] .mx-profile-context{font-size:10px;line-height:1.5}
+.planc-stage .mx-surface[data-plan-c] .mx-profile-check{font-size:10px;min-height:15px}
+.planc-stage .mx-surface[data-plan-c] .mx-profile-settings{margin-top:28px;font-size:10px}
+.planc-stage .mx-surface[data-plan-c] .mx-profile-settings summary{font-size:10px;min-height:30px;cursor:pointer}
+.planc-stage .mx-surface[data-plan-c] .mx-profile-settings p{font-size:10px;line-height:1.5}
+.planc-stage .mx-surface[data-plan-c] .mow-library-resume{flex:none;margin-top:8px}
+.planc-stage .mx-surface[data-plan-c] .mow-library-resume>button{width:100%;font-size:10px!important;min-height:30px;border:1px solid var(--mirror-edge-idle)}
+.planc-stage .mx-surface[data-plan-c] .mow-resume-options{display:flex;flex-direction:column;gap:5px;font-size:10px;margin-top:5px}
+.planc-stage .mx-surface[data-plan-c] .mow-resume-options button{white-space:normal;min-height:34px;border:1px solid var(--mirror-edge-idle);padding:5px}
+.planc-stage .mx-surface[data-plan-c] .mow-resume-options :is(.mow-resume-label,.mow-resume-name){font-size:10px;line-height:1.4}
+.planc-stage .mx-surface[data-plan-c] .mow-style-upload{gap:8px;padding:0;max-height:485px;overflow-y:auto;scrollbar-width:thin}
+.planc-stage .mx-surface[data-plan-c] .mow-style-upload>strong{font-size:12px}
+.planc-stage .mx-surface[data-plan-c] .mow-style-upload :is(p,label,small){font-size:10px;line-height:1.5}
+.planc-stage .mx-surface[data-plan-c] .mow-file-picker{position:relative;display:flex;justify-content:center;align-items:center;min-height:36px;border:1px solid var(--mirror-edge-selected);border-radius:7px;padding:6px;cursor:pointer}
+.planc-stage .mx-surface[data-plan-c] .mow-file-picker input[type=file]{position:absolute;width:1px;height:1px;min-height:0;padding:0;border:0;opacity:0;inset:0}
+.planc-stage .mx-surface[data-plan-c] .mow-file-picker:focus-within{outline:1px dashed var(--pc-text-accent);outline-offset:-3px}
+.planc-stage .mx-surface[data-plan-c] .mow-style-upload>img{width:100%;height:105px;object-fit:contain}
+.planc-stage .mx-surface[data-plan-c] .mow-local-photo-actions{display:flex;flex-direction:column;gap:5px}
+.planc-stage .mx-surface[data-plan-c] .mow-external-photo{margin-top:12px;font-size:10px}
+.planc-stage .mx-surface[data-plan-c] .mow-external-photo summary{font-size:10px;cursor:pointer}
+.planc-stage .mx-surface[data-plan-c] .mow-external-photo label{display:flex;gap:5px;align-items:flex-start;margin-top:8px}
+.planc-stage .mx-surface[data-plan-c] .mow-external-photo input[type=checkbox]{width:16px;height:16px;min-height:16px;flex:none;margin:1px 0}
+.planc-stage .mx-surface[data-plan-c] .mow-local-reference{display:flex;align-items:center;gap:5px;margin:0;padding:3px;font-size:9px;max-height:58px}
+.planc-stage .mx-surface[data-plan-c] .mow-local-reference img{width:35px;height:48px;object-fit:contain}
+.planc-stage .mx-surface[data-plan-c] .mow-local-reference figcaption{font-size:9px;min-width:0}
+.planc-stage .mx-surface[data-plan-c] .pc-calendar-detail-heading{display:grid;grid-template-columns:40px minmax(0,1fr);gap:3px 5px;align-items:center;margin-bottom:12px}
+.planc-stage .mx-surface[data-plan-c] .pc-calendar-detail-heading h1{font-size:17px;margin:0}
+.planc-stage .mx-surface[data-plan-c] .pc-calendar-detail-heading :is(small,p){grid-column:2;font-size:10px;white-space:nowrap}
+.planc-stage .mx-surface[data-plan-c] .pc-calendar-detail-heading button{width:40px;min-width:40px;padding:0;white-space:nowrap;font-size:10px}
+.planc-stage .mx-surface[data-plan-c] .mx-month-panel[data-calendar-view=detail]{display:flex;flex-direction:column}
+.planc-stage .mx-surface[data-plan-c] .mx-month-panel[data-calendar-view=detail]>.horizontal-pager{flex:1;min-height:0}
+.planc-stage .mx-surface[data-plan-c] .mx-month-panel[data-calendar-view=detail] :is(.horizontal-pager__viewport,.horizontal-pager__track,.horizontal-pager__page){height:100%}
+.planc-stage .mx-surface[data-plan-c] .mx-month-panel[data-calendar-view=detail] .mx-day-entry{max-height:100%;overflow-y:auto;scrollbar-width:thin;scrollbar-color:#d5d2c980 transparent}
+.planc-stage .mx-surface[data-plan-c] .mx-month-panel[data-calendar-view=detail] .mx-card-description{display:block;white-space:normal;overflow:visible;-webkit-line-clamp:unset;line-clamp:unset;font-size:10px;line-height:1.5}
+.planc-stage .mx-surface[data-plan-c] .pc-plan>.pc-plan-feedback{height:30px;min-height:30px;max-height:30px;margin:6px 0;font-size:10px;line-height:15px;overflow-y:auto;scrollbar-width:thin;color:var(--pc-text-primary)}
+
+/* Transparent released canvases preserve their canonical placement and native ratio. */
+.planc-stage .pc-canonical-card,.planc-stage .pc-canonical-thumbnail>img{width:100%;height:100%;object-fit:contain;opacity:1;filter:none;mix-blend-mode:normal}
+.planc-stage .pc-canonical-thumbnail{display:block}
+.planc-stage .pc-reference-person{position:absolute;left:0;top:155px;width:182px;height:520px;object-fit:contain;object-position:center bottom;opacity:1;filter:none;mix-blend-mode:normal;pointer-events:none;z-index:0}
+.planc-stage .pc-location article{margin:9px 0;padding-bottom:5px}
+.planc-stage .pc-location article>svg{width:69px;height:45px;margin:2px auto}
+.planc-stage .pc-location-item{display:flex;align-items:center;gap:7px}
+.planc-stage .pc-location-item>.mirror-photo{width:30px;height:42px;flex:none}
+.planc-stage .pc-location-item>strong{font-size:10px;line-height:1.5;word-break:keep-all}
+.planc-stage .pc-location article p,.planc-stage .pc-location article small{font-size:10px;line-height:1.5;margin:2px 0}
+
+/* Result origin stays beside the small card; ready text never crosses a face. */
+.planc-stage .mx-surface[data-plan-c] .mc-heading .mc-edit-entry{position:static;inset:auto;width:auto;min-width:48px;min-height:30px;padding:2px;border:0;font-size:10px;white-space:nowrap}
+.planc-stage .mx-surface[data-plan-c] .mc-heading{gap:2px}
+.planc-stage .mx-surface[data-plan-c] .mc-heading strong{font-size:10px;white-space:nowrap}
+.planc-stage .mx-surface[data-plan-c] .mc-snapshot{width:55px;padding:0;background:none;border:0}
+.planc-stage .mx-surface[data-plan-c] .mc-snapshot .mx-panel-composition{height:85px}
+.planc-stage .mx-surface[data-plan-c] .mc-result-state{left:64px;right:0;top:45px;min-height:0;background:none;padding:0;border:0;text-align:left}
+.planc-stage .mx-surface[data-plan-c] .mc-result-state p{font-size:9px;line-height:1.5;margin:0}
+.planc-stage .pc-reference-person{left:-31px;top:235px;width:245px;height:460px}

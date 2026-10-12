@@ -1,0 +1,17 @@
+{
+  "date": "2026-10-13",
+  "target": "dist-pages",
+  "files": 299,
+  "bytes": 209493648,
+  "textFiles": 19,
+  "hits": [],
+  "forbidden": [],
+  "base": {
+    "mode": "browser-local-static-demo",
+    "base": "/CLOS-IT/",
+    "api": "unavailable",
+    "remoteWrites": false,
+    "paidCalls": false,
+    "localStateUploaded": false
+  }
+}

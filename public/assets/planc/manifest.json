@@ -1,0 +1,34 @@
+{
+  "source": "Sujin_editable_source(1).zip",
+  "assets": [
+    {
+      "id": "planc:asset:locked-background",
+      "path": "public/assets/planc/LOCKED_BACKGROUND.png",
+      "sourceArchive": "Sujin_editable_source(1).zip",
+      "sourceEntry": "assets/LOCKED_BACKGROUND.png",
+      "sha256": "52cd52ddab71ce2505e65a8209fe8b112dced09b2918cafe1ce4bff3849d1bcd",
+      "dimensions": [
+        1448,
+        1086
+      ],
+      "alphaExtrema": null,
+      "copiedVerbatim": true
+    },
+    {
+      "id": "planc:asset:approved-original-trench",
+      "path": "public/assets/planc/approved_original_trench.png",
+      "sourceArchive": "Sujin_editable_source(1).zip",
+      "sourceEntry": "assets/approved_original_trench.png",
+      "sha256": "d0775d75e0489c4719974449672570fcee9a46a8e7a3c12b109190c76244ec8a",
+      "dimensions": [
+        59,
+        125
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "copiedVerbatim": true
+    }
+  ]
+}

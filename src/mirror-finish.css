@@ -1,0 +1,146 @@
+/* Final presentation only: source media, scene geometry and stored data stay unchanged. */
+.mx-surface[data-mirror-ui="clear"] {
+ --mirror-ink:#17211c; --mirror-ink-secondary:#29342e; --mirror-ink-accent:#315346;
+ --mirror-edge-idle:rgba(37,49,43,.08); --mirror-edge-hover:rgba(37,49,43,.16);
+ --mirror-edge-selected:rgba(37,49,43,.22); --mirror-item-radius:8px;
+ color:var(--mirror-ink);font-family:ClosetSans,'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif;
+ font-weight:500;line-height:1.5;letter-spacing:0;text-shadow:none;-webkit-text-stroke:0;
+ -webkit-text-fill-color:currentColor;mix-blend-mode:normal;opacity:1;
+}
+/* Explicit text primitives, including former independently shadowed labels. No media reset. */
+.mx-surface[data-mirror-ui="clear"] :is(.mx-header,.mx-clock,.mx-detail-heading>strong,.mx-garment-context>span,.mx-location-caption,.mx-fine,.mx-home-summary,.mx-home-side>span,.mc-heading>strong,.mx-external-composition em,.mirror-photo-example,.mx-nav button) {
+ color:var(--mirror-ink);text-shadow:none;-webkit-text-stroke:0;-webkit-text-fill-color:currentColor;mix-blend-mode:normal;filter:none;opacity:1;letter-spacing:0;
+}
+.mx-surface[data-mirror-ui="clear"] :is(button,input,select,textarea) {font-family:inherit;text-shadow:none;-webkit-text-stroke:0;-webkit-text-fill-color:currentColor;letter-spacing:0}
+.mx-surface[data-mirror-ui="clear"] button:active:not(:disabled){filter:none}
+.mx-surface[data-mirror-ui="clear"] :is(.mow-slot,.mow-candidate-grid button)::after {text-shadow:none}
+.photo-presentation-toggle,.photo-presentation-status{text-shadow:none;color:#17211c}
+.mx-surface[data-mirror-ui="clear"] :is(h1,h2,h3,.mx-header>strong,.mx-history>strong,.mow-name strong){font-weight:600;letter-spacing:0;line-height:1.3}
+.mx-surface[data-mirror-ui="clear"] :is(.mx-header>strong,.mg-heading h1,.mow-library-heading h1,.mx-profile-panel h1){font-size:20px}
+.mx-surface[data-mirror-ui="clear"] .mx-header>span:first-child {font-size:12px;letter-spacing:.06em;font-weight:500}
+.mx-surface[data-mirror-ui="clear"] .mx-source{font-size:14px;line-height:1.5}
+.mx-surface[data-mirror-ui="clear"] .mx-nav button{font-size:14px;line-height:1.45;min-height:48px}
+.mx-surface[data-mirror-ui="clear"] .mx-nav{gap:4px}
+.mx-surface[data-mirror-ui="clear"] :is(.mx-home-time time,.mx-history>strong,.mx-month-title>strong,.mx-month-grid,.horizontal-pager__controls){font-variant-numeric:tabular-nums}
+.mx-surface[data-mirror-ui="clear"] .mx-home-time time{font-size:34px;font-weight:600;letter-spacing:0}
+.mx-surface[data-mirror-ui="clear"] :is(.mx-home-time>span,.mx-home-time .mx-home-weather,.mx-home-name,.mx-home-greeting>p){font-size:15px;line-height:1.5;font-weight:500}
+.mx-surface[data-mirror-ui="clear"] .mx-home-greeting>p{padding:0;display:block;overflow:visible}
+.mx-surface[data-mirror-ui="clear"] .mx-home-summary{gap:12px}
+.mx-surface[data-mirror-ui="clear"] .mx-home-side>span{font-size:14px;white-space:normal}
+.mx-surface[data-mirror-ui="clear"] .mx-home-mini>strong{font-size:14px;line-height:1.5;white-space:normal;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;min-height:42px}
+.mx-surface[data-mirror-ui="clear"] .mx-home-mini>.mx-card-description{display:none}
+.mx-surface[data-mirror-ui="clear"] .mx-home-mini>small{font-size:14px!important;line-height:1.5!important;white-space:normal}
+/* Fixed hit regions with two-line names; transparent whitespace remains selectable. */
+.mx-surface[data-mirror-ui="clear"] :is(.mg-heading button,.mg-count,.mg-types button,.mg-extra-types button,.mx-search input){font-size:14px;line-height:1.5}
+.mx-surface[data-mirror-ui="clear"] .mg-grid{gap:6px}
+.mx-surface[data-mirror-ui="clear"] .mg-cell {min-height:118px;padding:5px 3px;gap:4px;outline:none;background:transparent;position:relative;border:0;border-radius:var(--mirror-item-radius)}
+.mx-surface[data-mirror-ui="clear"] .mg-cell>.mirror-photo {height:66px;flex:none}
+.mx-surface[data-mirror-ui="clear"] .mg-cell>span:last-child{font-size:15px;line-height:1.45;white-space:normal;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;min-height:44px;overflow:hidden;word-break:keep-all;overflow-wrap:anywhere}
+.mx-surface[data-mirror-ui="clear"] :is(.mg-cell,.mow-look-grid>button,.mc-candidates>button)::before {
+ content:"";position:absolute;inset:0;pointer-events:none;border:1px solid var(--mirror-edge-idle);border-radius:var(--mirror-item-radius);background:transparent;box-shadow:none;
+}
+.mx-surface[data-mirror-ui="clear"] :is(.mg-cell,.mow-look-grid>button,.mc-candidates>button):hover::before{border-color:var(--mirror-edge-hover)}
+.mx-surface[data-mirror-ui="clear"] :is(.mg-cell,.mow-look-grid>button,.mc-candidates>button)[aria-pressed="true"]::before{border-color:var(--mirror-edge-selected)}
+.mx-surface[data-mirror-ui="clear"] :is(.mg-cell,.mow-look-grid>button,.mc-candidates>button):is(:hover,[aria-pressed="true"]){outline:none;border-color:transparent}
+.mx-surface[data-mirror-ui="clear"] :is(.mg-cell,.mow-look-grid>button,.mc-candidates>button):focus-visible::before {inset:2px;border:2px dashed #10201a;outline:2px solid white;outline-offset:0;border-radius:3px}
+.mx-surface[data-mirror-ui="clear"] .mirror-photo-placeholder>small{font-size:14px!important;line-height:1.5!important;white-space:normal;text-align:center;overflow:visible;color:var(--mirror-ink-secondary)}
+.mx-surface[data-mirror-ui="clear"] .mirror-photo-placeholder{white-space:normal}
+.mx-surface[data-mirror-ui="clear"] .mirror-photo>.mirror-photo-example{font-size:12px!important;line-height:1.4;white-space:normal;color:var(--mirror-ink-secondary)}
+/* Source limitation is reading content, not a low-contrast footnote. */
+.mx-surface[data-mirror-ui="clear"] :is(.mx-detail-heading>strong,.mx-tabs>button,.mirror-care-evidence>strong,.mirror-care-evidence>button,.mg-care-helper button){font-size:16px;line-height:1.5}
+.mx-surface[data-mirror-ui="clear"] .mx-detail-heading>strong{font-weight:600}
+.mx-surface[data-mirror-ui="clear"] .mx-garment-context>span:not(.mirror-photo){font-size:15px;line-height:1.5;width:auto}
+.mx-surface[data-mirror-ui="clear"] .mx-history{font-size:16px;line-height:1.5;gap:8px}
+.mx-surface[data-mirror-ui="clear"] .mx-history>strong{font-size:22px}
+.mx-surface[data-mirror-ui="clear"] :is(.mx-history small,.mx-location-caption,.mg-care-helper small){font-size:14px!important;line-height:1.5!important}
+.mx-surface[data-mirror-ui="clear"] .mirror-care-rows{margin:0;display:flex;flex-direction:column;gap:8px;font-size:16px;line-height:1.5}
+.mx-surface[data-mirror-ui="clear"] .mirror-care-rows>div{display:grid;grid-template-columns:4.2em minmax(0,1fr);gap:6px;align-items:baseline}
+.mx-surface[data-mirror-ui="clear"] .mirror-care-rows dt{font-weight:600}
+.mx-surface[data-mirror-ui="clear"] .mirror-care-rows dd{margin:0;word-break:keep-all;overflow-wrap:anywhere}
+.mx-surface[data-mirror-ui="clear"] .mx-care .mirror-care-evidence p{font-size:15px;line-height:1.5;display:block;-webkit-line-clamp:unset;line-clamp:unset;overflow:visible}
+.mx-surface[data-mirror-ui="clear"] .mirror-care-evidence .mirror-care-scope{font-size:16px}
+.mx-surface[data-mirror-ui="clear"] .mx-original-text{font-size:16px;line-height:1.55;white-space:pre-wrap;word-break:normal}
+.mx-surface[data-mirror-ui="clear"] .mx-inline-dialog p{font-size:16px;line-height:1.55}
+.mx-surface[data-mirror-ui="clear"] .mx-inline-dialog h2{font-size:20px;line-height:1.3}
+/* One boundary per saved look, never around its internal garment slots. */
+.mx-surface[data-mirror-ui="clear"] .mow-look-grid>button{position:relative;outline:none;border:0;padding:6px;border-radius:8px}
+.mx-surface[data-mirror-ui="clear"] .mow-look-grid .mow-card-name{font-size:15px;line-height:1.45;white-space:normal;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;min-height:44px;text-align:left}
+.mx-surface[data-mirror-ui="clear"] .mow-look-grid .mow-card-action{font-size:14px;line-height:1.5}
+.mx-surface[data-mirror-ui="clear"] :is(.mow-tabs button,.mow-small-tabs button,.mow-library-hint,.mow-library-heading button,.mow-resume-label,.mow-resume-name,.mow-pager-role,.mow-draft-relation){font-size:14px;line-height:1.5;letter-spacing:0}
+.mx-surface[data-mirror-ui="clear"] .mow-pager-role{margin:0;font-weight:600}
+.mx-surface[data-mirror-ui="clear"] .mow-draft-relation{margin:0}
+.mx-surface[data-mirror-ui="clear"] .mow-resume-name{display:block;font-weight:500}
+.mx-surface[data-mirror-ui="clear"] .mow-card-composition{height:176px}
+.mx-surface[data-mirror-ui="clear"] .mx-card-item:has(.mirror-photo:not([data-photo-state=ready])){display:flex;flex-direction:column;justify-content:center;gap:3px}
+.mx-surface[data-mirror-ui="clear"] .mx-card-item:has(.mirror-photo:not([data-photo-state=ready]))>.mirror-photo{padding:0;height:44px;flex:0 0 44px}
+.mx-surface[data-mirror-ui="clear"] .mx-card-missing-name{position:static;font-size:14px;line-height:1.45;white-space:normal;word-break:keep-all;overflow-wrap:anywhere;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden}
+.mx-surface[data-mirror-ui="clear"] .mx-card-item:has(.mirror-photo[data-photo-state=ready])>.mx-card-missing-name{display:none}
+.mx-surface[data-mirror-ui="clear"] .mx-card-description{font-size:14px;line-height:1.5}
+.mx-surface[data-mirror-ui="clear"] .mow-slot-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.mx-surface[data-mirror-ui="clear"] .mow-name strong{font-size:18px}
+.mx-surface[data-mirror-ui="clear"] .mow-name span{font-size:15px;line-height:1.5;white-space:normal}
+.mx-surface[data-mirror-ui="clear"] :is(.mow-slot .mow-slot-label,.mow-slot>span:last-of-type,.mow-slot-tools>span,.mow-slot-tools button){font-size:14px;line-height:1.5}
+.mx-surface[data-mirror-ui="clear"] .mow-slot[aria-pressed=true]{border-color:transparent;text-decoration:underline;text-underline-offset:4px}
+.mx-surface[data-mirror-ui="clear"] .mow-actions button{font-size:16px;line-height:1.5}
+.mx-surface[data-mirror-ui="clear"] .mow-required{height:auto;min-height:21px;white-space:normal;font-size:14px;line-height:1.5}
+.mx-surface[data-mirror-ui="clear"] .mow-status{font-size:14px;line-height:1.5;max-height:84px}
+.mx-surface[data-mirror-ui="clear"] .mow-builder-heading{height:auto}
+.mx-surface[data-mirror-ui="clear"] .mirror-outfit-workspace .mg-cell{height:118px;min-height:118px}
+.mx-surface[data-mirror-ui="clear"] .mirror-outfit-workspace .mg-cell>.mirror-photo{height:66px}
+.mx-surface[data-mirror-ui="clear"] .mirror-outfit-workspace .mg-cell>span:last-child{font-size:15px}
+.mx-surface[data-mirror-ui="clear"] .horizontal-pager__controls>span{font-size:14px;line-height:1.5}
+.mx-surface[data-mirror-ui="clear"] .mc-heading>strong{font-size:16px;line-height:1.5}
+.mx-surface[data-mirror-ui="clear"] :is(.mc-composition-description,.mc-source-relation,.mc-compare-tools button,.mc-compare-tools span,.mc-empty p,.mc-empty small,.mc-browse,.mc-quick header,.mc-quick header button,.mc-candidates>button>span,.mc-record-link){font-size:14px;line-height:1.5}
+.mx-surface[data-mirror-ui="clear"] .mc-compare .mc-primary>.mx-primary{font-size:16px!important;border-color:var(--mirror-edge-selected);outline:none}
+.mx-surface[data-mirror-ui="clear"] .mc-compare .mx-media-status{font-size:14px;line-height:1.5}
+.mx-surface[data-mirror-ui="clear"] :is(.mx-profile-panel .mx-panel-note,.mx-profiles-grid strong,.mx-day-entry>strong,.mx-day-entry>p,.mx-calendar-empty,.mx-month-title>strong){font-size:16px;line-height:1.5}
+.mx-surface[data-mirror-ui="clear"] :is(.mx-profiles-grid small,.mx-profile-account,.mx-month-grid .mx-weekday,.mx-day-entry>small,.mx-day-entry>button,.mx-calendar-selected>button){font-size:14px;line-height:1.5}
+.mx-surface[data-mirror-ui="clear"] .mx-month-grid>button{font-size:15px;line-height:1.5}
+.mx-surface[data-mirror-ui="clear"] .mx-profiles-grid>button{min-height:124px}
+@media(prefers-reduced-motion:no-preference){.mx-surface[data-mirror-ui="clear"] :is(.mg-cell,.mow-look-grid>button,.mc-candidates>button)::before{transition:border-color 120ms ease-out}}
+
+/* Reading bands use the fixed reflection; no contrast panel or glyph outline. */
+.mx-surface[data-mirror-ui="clear"] .mx-nav button:nth-last-child(-n+2){color:#000}
+.mx-surface[data-mirror-ui="clear"] .mx-nav button[aria-current]::after{background:currentColor}
+.mx-surface[data-mirror-ui="clear"] .mx-care{margin-left:68px}
+.mx-surface[data-mirror-ui="clear"] .mx-garment-context{height:80px}
+.mx-surface[data-mirror-ui="clear"] .mx-garment-context>.mirror-photo{width:52px;height:80px;flex:0 0 52px}
+.mx-surface[data-mirror-ui="clear"] .mow-look-grid{grid-template-columns:minmax(0,1fr)}
+.mx-surface[data-mirror-ui="clear"] .mx-home-mini .mx-card-item:has(.mirror-photo:not([data-photo-state=ready]))>.mirror-photo{height:100%;flex:1}
+.mx-surface[data-mirror-ui="clear"] .mx-home-mini :is(.mirror-photo[data-photo-state="missing"] .mirror-photo-placeholder,.mx-card-missing-name,.mirror-photo-example){display:none}
+.mx-surface[data-mirror-ui="clear"] .mx-home-mini>.mx-home-photo-note{font-size:14px!important;line-height:1.5!important}
+.mx-surface[data-mirror-ui="clear"] .mx-home-image-source{font-size:14px;line-height:1.5;text-align:center}
+.mx-surface[data-mirror-ui="clear"] .mow-slot .mow-slot-label{white-space:normal;min-height:42px;line-height:1.5;overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2}
+.mx-surface[data-mirror-ui="clear"] .mc-source-relation{position:absolute;top:18%;left:23%;right:8%;margin:0;font-size:14px;line-height:1.5}
+.mx-surface[data-mirror-ui="clear"] .mc-candidates>button>span{white-space:normal;line-height:1.5;min-height:42px;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}
+
+.mx-surface[data-mirror-ui="clear"] .mx-nav{top:15.5%}
+.mx-surface[data-mirror-ui="clear"] .mx-nav button{color:#000}
+.mx-surface[data-mirror-ui="clear"] .mirror-care-rows>div{grid-template-columns:minmax(0,1fr);gap:0}
+.mx-surface[data-mirror-ui="clear"] .mirror-care-rows dt{font-size:14px}
+.mx-surface[data-mirror-ui="clear"] .mirror-care-rows dd{font-size:16px;line-height:1.5}
+.mx-surface[data-mirror-ui="clear"] .mx-care .mirror-care-evidence .mirror-care-scope{font-size:15px}
+.mx-surface[data-mirror-ui="clear"] .mx-care .mirror-care-evidence .mirror-care-source{font-size:14px}
+.mx-surface[data-mirror-ui="clear"] .mow-name span{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.5}
+.mx-surface[data-mirror-ui="clear"] .mow-draft-relation{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-height:21px}
+.mx-surface[data-mirror-ui="clear"] .mow-summary-role{height:44px;min-height:44px;display:flex;align-items:center;padding-right:118px}
+.mx-surface[data-mirror-ui="clear"] .mow-summary{position:relative}
+.mx-surface[data-mirror-ui="clear"] .mow-summary>.horizontal-pager__controls{position:absolute;right:0;top:-50px;width:116px;margin:0}
+.mx-surface[data-mirror-ui="clear"] .mow-slot-label{display:flex!important;align-items:start;min-height:42px;white-space:normal}
+.mx-surface[data-mirror-ui="clear"] .mow-slot-name{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;white-space:normal;word-break:keep-all;overflow-wrap:anywhere}
+.mx-surface[data-mirror-ui="clear"] .mirror-outfit-workspace .mg-cell{height:100px;min-height:100px}
+.mx-surface[data-mirror-ui="clear"] .mirror-outfit-workspace .mg-cell>.mirror-photo{height:48px}
+.mx-surface[data-mirror-ui="clear"] .mow-required:empty{height:0;min-height:0}
+.mx-surface[data-mirror-ui="clear"] .mc-compare .mc-primary>.mx-primary:not(:focus-visible){outline:none}
+
+/* Darker single ink is reserved for essential care instructions over the fixed curtain. */
+.mx-surface[data-mirror-ui="clear"] .mx-care .mirror-care-evidence{color:#050a07}
+.mx-surface[data-mirror-ui="clear"] .mirror-photo-placeholder>small{color:#101713}
+.mx-surface[data-mirror-ui="clear"] .mirror-photo>.mirror-photo-example{font-size:14px!important;color:#101713}
+.mx-surface[data-mirror-ui="clear"] .mow-builder-heading .mow-recommend{font-size:14px;line-height:1.45}
+
+.mx-surface[data-mirror-ui="clear"] .mx-header>span:first-child{color:var(--mirror-ink)}
+.mx-surface[data-mirror-ui="clear"] .mirror-photo>.mirror-photo-example{color:#050a07}
+
+/* Navigation keeps the same opaque ink while hovered, pressed or current. */
+.mx-surface[data-mirror-ui="clear"] .mx-nav button:is(:hover,:active,[aria-current]){color:#000}

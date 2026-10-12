@@ -1,0 +1,8 @@
+node_modules/
+dist/
+dist-pages/
+tmp/
+.env*
+!.env.example
+*.log
+.evidence-private/

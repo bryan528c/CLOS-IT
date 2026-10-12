@@ -1,0 +1,58 @@
+import {profilePackV1Catalog} from './profilePackV1Catalog';
+import {profilePackV1CanonicalCard} from './profilePackV1Presentation';
+import {describeOutfitCard} from '../outfitCardPresentation';
+import {useEffect,useRef,useState,useSyncExternalStore} from 'react';
+import {app} from '../appInstance';
+import type {Garment,Outfit,OutfitDraft} from '../core/types';
+import {MirrorPhoto} from '../MirrorGarmentGrid';
+import {HorizontalPager} from '../HorizontalPager';
+import {Icon} from '../Icons';
+import {PLAN_C_DEMO_CONTEXT as demo,PLAN_C_PROFILE_IDS as profile,PLAN_C_FIXTURE_IDS as ids,PLAN_C_SCENE} from './sceneConfig';
+import {planCOrderedLooks,resolvePlanCLocations,planCCareLabels} from './data';
+import {captureSelectionSubmission} from '../core/selectionScenario';
+import type {SelectionSubmission} from '../core/selectionScenario';
+import {completeOutfit} from '../core/externalOutfits';
+
+export function PlanCHeader({owner}:{owner:string}){const time=owner===profile.sujin?demo.sujin.time:demo.hwijae.time;return <header className="pc-header"><time dateTime={`${demo.date}T${time}:00+09:00`}>{time}</time><span>{demo.dateLabel}</span><div aria-label="시연 날씨 22도 맑음">☼<small>{demo.temperatureC}°C<br/>{demo.weather}</small></div></header>;}
+
+export function PlanCOutfitCard({look,small=false}:{look:Pick<Outfit,'items'|'name'> & Partial<Outfit>;small?:boolean}){
+ const card=describeOutfitCard({outfit:look,ownerId:app.getState().activeProfileId,garments:app.garments(),externalItems:app.externalItems()});
+ const canonical=profilePackV1CanonicalCard(profilePackV1Catalog,app.garments(),look as Outfit,small?'fitting-card':'master');
+ if(canonical)return <div className={`pc-flatlay ${small?'pc-flatlay-small':''}`} aria-label={`${card.title} 구성품`} data-composition={JSON.stringify(look.items)} data-canonical-layout={canonical.layoutRef} data-card-reuse-status={card.reuseStatus}><img className="pc-canonical-card" src={canonical.url} alt={`${card.title} · 같은 의류 ID 구성`}/></div>;
+ return <div className={`pc-flatlay ${small?'pc-flatlay-small':''}`} aria-label={`${card.title} 구성품`} data-composition={JSON.stringify(look.items)} data-card-reuse-status={card.reuseStatus}>{card.slots.map(row=><div key={row.slot} data-slot={row.slot} data-garment-id={row.garmentId} data-external-id={row.externalItemId} data-card-status={row.status} className="pc-flatlay-part"><MirrorPhoto asset={row.asset} example={row.example} presentationRevision={row.presentationRevision} name={row.name} emptyLabel={row.notice&&row.status!=='missing-photo'?row.notice:'사진 없음'}/>{!row.asset&&<span>{row.name}</span>}{row.source==='external'&&<small>구매 후보</small>}</div>)}</div>;
+}
+
+export function PlanCHome({onCare,onOpenLook}:{onCare:(garment:Garment)=>void;onOpenLook:(look:Outfit)=>void}){
+ const state=useSyncExternalStore(app.subscribe,app.getState),owner=state.activeProfileId,isSujin=owner===profile.sujin;
+ const coat=app.garments().find(g=>g.id===ids.sujinTrench),looks=planCOrderedLooks(app.cardOutfits()),look=looks[0],care=coat?planCCareLabels(state,owner,coat.id,demo.date):null;
+ return <section className="pc-home pc-content" aria-label="홈 안내"><h1>{owner===profile.hwijae?'휘재':state.profiles.find(p=>p.id===owner)?.name}님,</h1><p>{isSujin?<>오늘은 트렌치코트를<br/>관리할 날이에요.</>:owner===profile.hwijae?'오늘 지원님 결혼식 가시죠?':'오늘 입을 옷을 함께 골라보세요.'}</p>{isSujin&&coat?<><p className="pc-home-kind">좋은 옷이,<br/>좋은 하루를 만들어줘요.</p><article className="pc-home-care-card"><div className="pc-home-coat"><MirrorPhoto garment={coat} name={coat.name}/></div><div className="pc-home-care-copy"><strong>{coat.name}</strong><p>최근 관리<br/>{care?.recentCareLabel??'기록 없음'}</p><p>추천 케어<br/>드라이클리닝 권장</p></div><button className="pc-action" aria-label="트렌치코트 관리하기" onClick={()=>onCare(coat)}>케어 확인하기 <span>›</span></button></article></>:look?<><p className="pc-home-guidance">{owner===profile.hwijae?<>이렇게 입고 가시면<br/>어떨까요?</>:<>저장된 코디로<br/>오늘을 준비해 보세요.</>}</p><div className="pc-home-look"><PlanCOutfitCard look={look}/><small>시연 추천 · AI 실행 결과 아님</small></div><button className="pc-action" onClick={()=>onOpenLook(look)}>입어보기</button></>:<p>코디 메뉴에서 새 조합을 만들어 보세요.</p>}<small className="pc-context-note">10월 13일의 시연 일정·날씨</small></section>;
+}
+
+export function PlanCCardCarousel({looks,index,onIndexChange,onOpen}:{looks:Outfit[];index:number;onIndexChange:(index:number)=>void;onOpen:(look:Outfit)=>void}){
+ const state=useSyncExternalStore(app.subscribe,app.getState),[bookmarkMessage,setBookmarkMessage]=useState('');
+ useEffect(()=>setBookmarkMessage(''),[state.activeProfileId,index]);
+ const ordered=planCOrderedLooks(looks),current=Math.min(index,Math.max(0,ordered.length-1)),look=ordered[current];
+ const toggleBookmark=(outfit:Outfit)=>{try{app.setOutfitBookmark(outfit.id,!app.isOutfitBookmarked(outfit.id));setBookmarkMessage('');}catch(error){setBookmarkMessage(error instanceof Error?error.message:'보관 설정을 저장하지 못했어요.');}};
+ return <div className="pc-card-browser">{look?<><HorizontalPager label="저장 코디 페이지" index={current} onIndexChange={onIndexChange} peek={0.10} gap={8} showControls={false}>{ordered.map((outfit,i)=>{const bookmarked=app.isOutfitBookmarked(outfit.id),source=Object.values(profilePackV1Catalog.raw.profiles).flatMap(p=>p.outfits).find(o=>o.ref===outfit.id)?.recommendationSource;return <article className="pc-look-card" key={outfit.id} data-outfit-id={outfit.id} data-recommendation-source={source??'user-card'} aria-label={outfit.name} aria-current={i===current?'true':undefined}><span className="pc-card-origin">{source==='approved_reference_demo'?'시연 추천':source==='authored_demo'?'시연 카드':'내 코디'}</span><button type="button" className="pc-bookmark" aria-label={`${outfit.name} ${bookmarked?'보관 해제':'보관'}`} aria-pressed={bookmarked} title={bookmarked?'보관 해제':'보관'} onClick={()=>toggleBookmark(outfit)}><svg width="14" height="18" viewBox="0 0 14 18" aria-hidden="true"><path d="M2 1h10v15l-5-3-5 3Z" fill={bookmarked?'currentColor':'none'} stroke="currentColor" strokeWidth="1.2"/></svg></button><PlanCOutfitCard look={outfit}/>{![ids.hwijaeRecommendedOutfit,ids.hwijaeSelectedOutfit].some(id=>id===outfit.id)&&<strong title={outfit.name}>{outfit.name}</strong>}</article>;})}</HorizontalPager><button className="pc-action pc-try" onClick={()=>onOpen(look)}>입어보기</button><div className="pc-page-controls"><button aria-label="이전 코디" disabled={current===0} onClick={()=>onIndexChange(current-1)}>‹</button><span>{current+1} / {ordered.length}</span><button aria-label="다음 코디" disabled={current===ordered.length-1} onClick={()=>onIndexChange(current+1)}>›</button></div>{bookmarkMessage&&<p role="status">{bookmarkMessage}</p>}</>:<p>아직 저장한 코디가 없어요.</p>}</div>;
+}
+
+export function PlanCLocation({garments,owner,ids:requested,onClose,onReady}:{garments:Garment[];owner:string;ids:string[];onClose:()=>void;onReady:(ids:string[])=>void}){
+ const [ready,setReady]=useState(false),live=useRef(true),key=JSON.stringify([owner,requested]);
+ useEffect(()=>{let cancelled=false;live.current=true;setReady(false);onReady([]);const controller=new AbortController();
+  // A real asynchronous local repository read, cancelable before publishing a result.
+  const read=async()=>{await new Promise<void>(resolve=>requestAnimationFrame(()=>resolve()));const response=await Promise.resolve(resolvePlanCLocations(garments,owner,requested));if(!cancelled&&!controller.signal.aborted&&live.current&&app.getState().activeProfileId===owner){setReady(true);onReady(response.items.filter(row=>row.known).map(row=>row.garmentId));}};void read();
+  return()=>{cancelled=true;controller.abort();live.current=false;onReady([]);};
+ },[key]);
+ const resolved=resolvePlanCLocations(garments,owner,requested);
+ return <section className="pc-location pc-content" aria-label="옷 위치 안내" data-location-status={ready?'ready':'loading'}><h1>옷 위치 찾기</h1><button className="pc-back" aria-label="위치 안내 닫기" onClick={onClose}>‹ 닫기</button>{!ready?<p role="status">선택한 옷의 위치를<br/>확인하고 있어요.</p>:<><p>옷 {resolved.items.length}벌 중 {resolved.anchors.length}벌의 위치를 확인했어요.</p>{resolved.items.map(row=><article key={row.garmentId} data-location-garment-id={row.garmentId} data-location-id={row.locationId} data-location-binding={row.status}><div className="pc-location-item"><MirrorPhoto garment={garments.find(g=>g.id===row.garmentId)} name={row.garmentName}/><strong>{row.garmentName}</strong></div>{row.known&&<svg viewBox="0 0 1448 1086" role="img" aria-label={row.displayLabel}><rect x="84" y="116" width="1280" height="805" rx="4" fill="none" stroke="currentColor" strokeWidth="10"/>{[332,609,856,1127].map(x=><path key={x} d={`M${x},116V921`} stroke="currentColor" strokeWidth="8"/>)}<rect x="609" y="116" width="247" height="805" fill="currentColor" opacity=".12"/>{resolved.anchors.filter(a=>row.anchorIds.includes(a.id)).map(a=><circle key={a.id} cx={a.x} cy={a.y} r="35" fill="#ffe2a5"/>)}</svg>}<p>{row.known?row.displayLabel:'정확한 위치 확인이 필요해요.'}</p>{!row.known&&<small>{row.displayLabel}</small>}</article>)}<small>레퍼런스에서 확인한 시연 위치<br/>실물 센서 조회 아님</small></>}</section>;
+}
+
+export function PlanCSchedule({draft,date,onLocate,onCancel,replacePlanId,eventTitle,dateVisible=true}:{dateVisible?:boolean;replacePlanId?:string;eventTitle?:string;draft:OutfitDraft;date:string;onLocate:(ids:string[])=>void;onCancel:()=>void}){
+ const [status,setStatus]=useState<'idle'|'saving'|'saved'|'error'>('idle'),[message,setMessage]=useState(''),[savedIds,setSavedIds]=useState<string[]>([]);
+ const pending=useRef<SelectionSubmission|null>(null),busy=useRef(false),mounted=useRef(true),context=useRef('');
+ const key=JSON.stringify([draft.ownerId,draft.draftId,draft.revision,date,replacePlanId,eventTitle]);context.current=key;
+ useEffect(()=>{setStatus('idle');setMessage('');setSavedIds([]);pending.current=null;},[key]);
+ useEffect(()=>{mounted.current=true;return()=>{mounted.current=false;};},[]);
+ const save=async()=>{if(busy.current||!dateVisible)return;const captured=key;try{busy.current=true;setStatus('saving');const submission=pending.current??{...captureSelectionSubmission(draft,date,app.garments(),`planc-plan:${draft.draftId}:${draft.revision}:${date}`),...(eventTitle&&app.connection.kind==='local'?{planTitle:eventTitle}:{})};pending.current=submission;const result=replacePlanId?await app.replacePlanWithSelection(replacePlanId,submission,`planc-replace:${replacePlanId}:${draft.draftId}:${draft.revision}:${date}`):await app.retrySelection(submission);if(!mounted.current||context.current!==captured||app.getState().activeProfileId!==draft.ownerId)return;setSavedIds(result.garmentIds);setStatus('saved');setMessage('일정에 저장했어요');}catch(e){if(mounted.current&&context.current===captured){setStatus('error');setMessage((e as Error).message);}}finally{busy.current=false;}};
+ return <section className="pc-plan" aria-label="선택 코디 일정에 저장" data-plan-status={status} data-plan-mode={replacePlanId?'edit':'attach'}><strong>{eventTitle??`${date}의 코디`}</strong>{eventTitle&&<small className="pc-plan-date">{date}</small>}{!dateVisible&&<p role="status">저장할 날짜를 이 달에서 선택해 주세요.</p>}<PlanCOutfitCard look={draft} small/><p className="pc-plan-feedback" role="status">{status==='saved'?'일정에 저장했어요':message}</p>{status==='saved'?<><button className="pc-action" onClick={()=>onLocate(savedIds)}>옷 위치 찾기</button><button onClick={onCancel}>저장한 일정 보기</button></>:<><button className="pc-action" disabled={!dateVisible||status==='saving'||!completeOutfit(draft)} onClick={()=>void save()}>{status==='saving'?'저장 확인 중':status==='error'?'같은 요청 다시 확인':replacePlanId?'이 계획을 수정':'이 일정에 저장'}</button><button disabled={status==='saving'} onClick={onCancel}>취소</button></>}<small>코디 계획만 저장 · 실제 착용은 별도</small></section>;
+}
